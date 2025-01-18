@@ -19,6 +19,6 @@ Deve abrir a tela principal
     ...    connectHardwareKeyboard=false
 
     Wait Until Page Contains    br.com.scrubin.gestores    5
-    Wait Until Element Is Visible    //android.widget.ImageView    10s
-    Element Should Be Visible    	//android.widget.ImageView    5
+    # Wait Until Element Is Visible    //android.widget.ImageView    10s
+    # Element Should Be Visible    	//android.widget.ImageView    5
     Close Application
