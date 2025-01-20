@@ -7,7 +7,6 @@ Test Teardown    Close Application
 
 ***Test Cases***
 Deve realizar o login com sucesso
-    #Carrega config do app 
     Open Session
     Get Started
     Login    andersonfoliveira@yahoo.com    User@123    
