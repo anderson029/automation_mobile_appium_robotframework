@@ -2,44 +2,10 @@
 
 Library    AppiumLibrary
 
-#Abre a seção antes de cada teste
-Test Setup    Open Session
-
-#Fecha o app após cada teste
-Test Teardown    Close Application
-
-*** Variables ***
-${URL}    http://localhost:4723/wd/hub
-  
-***Test Cases***
-Deve realizar o login com sucesso
-    #Carrega config do app 
-    Open Session
-    Get Started
-    Login    andersonfoliveira@yahoo.com    User@123    
-  
-    #Meu Perfil
-    Wait Until Element Is Visible    //android.view.View[@content-desc="Acessar meu perfil"]    
-    Click Element        xpath=//android.view.View[@content-desc="Acessar meu perfil"]
-    Wait Until Element Is Visible    //android.view.View[@text="Olá, Pablo!"]    
-    Element Text Should Be    //android.view.View[@text="Olá, Pablo!"]    Olá, Pablo! 
-
-Não deve realizar login com e-mail inválido
-    Open Session
-    Get Started
-    Login    teste@teste.com    User@123 
-    Validation Message
-
-Não deve realizar login com password inválido   
-    Open Session
-    Get Started
-    Login    andersonfoliveira@yahoo.com    Xpto 
-    Validation Message
-
 *** Keywords ***
 Open Session
-    Set Appium Timeout    10
-    Open Application    ${URL}
+    Set Appium Timeout    15
+    Open Application    http://localhost:4723/wd/hub
     ...    platformName=Android
     ...    platformVersion=15
     ...    deviceName=Emulator
