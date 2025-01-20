@@ -15,18 +15,9 @@ ${URL}    http://localhost:4723/wd/hub
 Deve realizar o login com sucesso
     #Carrega config do app 
     Open Session
-
-    #Tela inicial  
-    Wait Until Page Contains    Entrar    
-    Wait Until Element Is Visible    xpath=//android.widget.TextView[@text="Entrar"]    
-    Click Text    Entrar
-    
-    #Login page
-    Wait Until Element Is Visible    xpath=//android.widget.EditText[@text="email@email.com"]    
-    Input Text    xpath=//android.widget.EditText[@text="email@email.com"]    andersonfoliveira@yahoo.com
-    Input Text    xpath=//android.widget.EditText[@text="Insira sua senha"]    User@123
-    Click Text    Fazer Login    
-    
+    Get Started
+    Login    andersonfoliveira@yahoo.com    User@123    
+  
     #Meu Perfil
     Wait Until Element Is Visible    //android.view.View[@content-desc="Acessar meu perfil"]    
     Click Element        xpath=//android.view.View[@content-desc="Acessar meu perfil"]
@@ -35,24 +26,19 @@ Deve realizar o login com sucesso
 
 Não deve realizar login com e-mail inválido
     Open Session
+    Get Started
+    Login    teste@teste.com    User@123 
+    Validation Message
 
-    #Tela inicial  
-    Wait Until Page Contains    Entrar    
-    Wait Until Element Is Visible    xpath=//android.widget.TextView[@text="Entrar"]    
-    Click Text    Entrar
-    
-    #Login page
-    Wait Until Element Is Visible    xpath=//android.widget.EditText[@text="email@email.com"]    
-    Input Text    xpath=//android.widget.EditText[@text="email@email.com"]    teste@tst.com
-    Input Text    xpath=//android.widget.EditText[@text="Insira sua senha"]    User@123
-    Click Text    Fazer Login  
-
-    ##VALIDAR A MENSAGEM DE ERRO DA APLICAÇÃO
-
+Não deve realizar login com password inválido   
+    Open Session
+    Get Started
+    Login    andersonfoliveira@yahoo.com    Xpto 
+    Validation Message
 
 *** Keywords ***
 Open Session
-    Set Appium Timeout    5
+    Set Appium Timeout    10
     Open Application    ${URL}
     ...    platformName=Android
     ...    platformVersion=15
@@ -62,5 +48,23 @@ Open Session
     ...    udid=emulator-5554
     ...    newCommandTimeout=3600
     ...    connectHardwareKeyboard=false
+         
 Close Session
     Close Application
+
+Get Started
+    Wait Until Page Contains    Entrar    
+    Wait Until Element Is Visible    xpath=//android.widget.TextView[@text="Entrar"]    
+    Click Text    Entrar  
+
+Login
+    [Arguments]    ${email}    ${senha}
+    Wait Until Element Is Visible    xpath=//android.widget.EditText[@text="email@email.com"]
+    Input Text    xpath=//android.widget.EditText[@text="email@email.com"]    ${email}
+    Input Text    xpath=//android.widget.EditText[@text="Insira sua senha"]    ${senha}
+    Click Text    Fazer Login
+
+
+Validation Message
+    Wait Until Element Is Visible    //android.widget.TextView[@text="Login inválido, tente novamente ou recupere sua senha."]
+    Element Text Should Be    //android.widget.TextView[@text="Login inválido, tente novamente ou recupere sua senha."]    Login inválido, tente novamente ou recupere sua senha.
