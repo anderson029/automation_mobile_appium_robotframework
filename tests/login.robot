@@ -3,7 +3,6 @@
 Resource    ../resources/base.robot
 
 Test Setup    Open Session
-
 Test Teardown    Close Application
 
 ***Test Cases***

@@ -30,7 +30,6 @@ Login
     Input Text    xpath=//android.widget.EditText[@text="Insira sua senha"]    ${senha}
     Click Text    Fazer Login
 
-
 Validation Message
     Wait Until Element Is Visible    //android.widget.TextView[@text="Login inválido, tente novamente ou recupere sua senha."]
     Element Text Should Be    //android.widget.TextView[@text="Login inválido, tente novamente ou recupere sua senha."]    Login inválido, tente novamente ou recupere sua senha.
