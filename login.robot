@@ -8,6 +8,7 @@ ${APP_PATH}    ${EXECDIR}/gestores/gestores-hom-0.0.2.apk
 
 ***Test Cases***
 Deve realizar o login com sucesso
+    Set Appium Timeout    5
     Open Application    ${URL}
     ...    platformName=Android
     ...    platformVersion=15
@@ -19,20 +20,20 @@ Deve realizar o login com sucesso
     ...    connectHardwareKeyboard=false
 
     #Tela inicial  
-    Wait Until Page Contains    Entrar    5
-    Wait Until Element Is Visible    xpath=//android.widget.TextView[@text="Entrar"]    5
+    Wait Until Page Contains    Entrar    
+    Wait Until Element Is Visible    xpath=//android.widget.TextView[@text="Entrar"]    
     Click Text    Entrar
     
     #Login page
-    Wait Until Element Is Visible    xpath=//android.widget.EditText[@text="email@email.com"]    5
+    Wait Until Element Is Visible    xpath=//android.widget.EditText[@text="email@email.com"]    
     Input Text    xpath=//android.widget.EditText[@text="email@email.com"]    andersonfoliveira@yahoo.com
     Input Text    xpath=//android.widget.EditText[@text="Insira sua senha"]    User@123
-    Click Text    Fazer Login    5
+    Click Text    Fazer Login    
     
     #Meu Perfil
-    Wait Until Element Is Visible    //android.view.View[@content-desc="Acessar meu perfil"]    7
+    Wait Until Element Is Visible    //android.view.View[@content-desc="Acessar meu perfil"]    
     Click Element        xpath=//android.view.View[@content-desc="Acessar meu perfil"]
-    Wait Until Element Is Visible    //android.view.View[@text="Olá, Pablo!"]    5
+    Wait Until Element Is Visible    //android.view.View[@text="Olá, Pablo!"]    
     Element Text Should Be    //android.view.View[@text="Olá, Pablo!"]    Olá, Pablo! 
     
     #Fechar app
