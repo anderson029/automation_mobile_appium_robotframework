@@ -6,12 +6,16 @@ Test Setup    Open Session
 Test Teardown    Close Application
 *** Variables ***
 ${TEXT_VIEW}    //android.widget.TextView[@text="Login inválido, tente novamente ou recupere sua senha."]
+${USER_NAME}    //android.view.View[@text="Olá, Pablo!"] 
 
 ***Test Cases***
 Deve realizar o login com sucesso
     Open Session
     Login    andersonfoliveira@yahoo.com    User@123    
     Profile
+
+    Wait Until Element Is Visible    ${USER_NAME}    
+    Element Text Should Be    ${USER_NAME}    Olá, Pablo! 
 
 Não deve realizar login com e-mail inválido
     Open Session
