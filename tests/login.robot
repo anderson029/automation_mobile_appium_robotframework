@@ -10,13 +10,11 @@ ${TEXT_VIEW}    //android.widget.TextView[@text="Login inválido, tente novament
 ***Test Cases***
 Deve realizar o login com sucesso
     Open Session
-    Get Started
     Login    andersonfoliveira@yahoo.com    User@123    
     Profile
 
 Não deve realizar login com e-mail inválido
     Open Session
-    Get Started
     Login    teste@teste.com    User@123 
  
     Wait Until Element Is Visible    ${TEXT_VIEW} 
@@ -24,8 +22,7 @@ Não deve realizar login com e-mail inválido
 
 Não deve realizar login com password inválido   
     Open Session
-    Get Started
     Login    andersonfoliveira@yahoo.com    Xpto 
-    
+
     Wait Until Element Is Visible    ${TEXT_VIEW} 
     Element Text Should Be    ${TEXT_VIEW}     Login inválido, tente novamente ou recupere sua senha.

@@ -21,6 +21,7 @@ Open Session
     ...    udid=emulator-5554
     ...    newCommandTimeout=3600
     ...    connectHardwareKeyboard=false
+    Get Started
        
 Close Session
     Close Application
