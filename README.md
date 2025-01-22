@@ -77,7 +77,7 @@ pip install robotframework
 
 ## Instalar a Biblioteca do Appium para RobotFramework
 
-Consulte a documentação oficial [aqui](https://github.com/robotframework/AppiumLibrary). Para instalar a biblioteca, execute:
+Consulte a documentação oficial [aqui](https://github.com/serhatbolsu/robotframework-appiumlibrary?tab=readme-ov-file). Para instalar a biblioteca, execute:
 
 ```bash
 pip install --upgrade robotframework-appiumlibrary
