@@ -3,7 +3,7 @@
 Resource    ../resources/base.robot
 
 Test Setup    Open Session
-Test Teardown    Close Application
+Test Teardown    Teardown Actions
 *** Variables ***
 ${TEXT_VIEW}    //android.widget.TextView[@text="Login inválido, tente novamente ou recupere sua senha."]
 ${USER_NAME}    //android.view.View[@text="Olá, Pablo!"] 

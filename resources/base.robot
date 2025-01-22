@@ -18,5 +18,7 @@ Open Session
     ...    connectHardwareKeyboard=false
     Get Started
        
-Close Session
+Teardown Actions
+    [Documentation]    Realiza ações de teardown, incluindo screenshot e fechamento da aplicação.
+    Capture Page Screenshot
     Close Application
