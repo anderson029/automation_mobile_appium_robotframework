@@ -10,6 +10,7 @@ ${USER_NAME}    //android.view.View[@text="Olá, Pablo!"]
 
 ***Test Cases***
 Deve realizar o login com sucesso
+    [Tags]    login    smoke
     Open Session
     Login    andersonfoliveira@yahoo.com    User@123    
     Profile
